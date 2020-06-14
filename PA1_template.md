@@ -53,6 +53,7 @@ print(plt1)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
 With **mean** 9354.23 and **median** 
 10395 steps.
 
@@ -74,6 +75,7 @@ print(plt2)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+
 And the 5-minute interval with the **maximum average** of steps is 
 835.
 
@@ -126,6 +128,7 @@ grid.arrange(plt1, plt3, nrow = 1)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+
 With **mean** 10766.19 and **median** 
 10766.19 steps.  
 The effect of imputing data is a change in the mean and median of the total steps per day.  

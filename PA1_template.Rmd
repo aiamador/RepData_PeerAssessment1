@@ -35,6 +35,7 @@ plt1 <- ggplot(steps_day,aes(x = steps)) +
     labs(x = 'Steps',y = 'Counts')
 print(plt1)
 ```
+
 With **mean** `r round(mean(steps_day$steps),2)` and **median** 
 `r median(steps_day$steps)` steps.
 
@@ -52,6 +53,7 @@ plt2 <- ggplot(steps_interval,aes(x = interval,y = steps)) +
     labs(x = 'Interval',y = 'Steps')
 print(plt2)
 ```
+
 And the 5-minute interval with the **maximum average** of steps is 
 `r steps_interval$interval[which.max(steps_interval$steps)]`.
 
@@ -80,6 +82,7 @@ plt3 <- ggplot(steps_day,aes(x = steps)) +
 plt1 <-  plt1 + ggtitle('NA ignored')
 grid.arrange(plt1, plt3, nrow = 1)
 ```
+
 With **mean** `r format(round(mean(steps_day$steps),2),scientific=F)` and **median** 
 `r format(median(steps_day$steps),scientific=F)` steps.  
 The effect of imputing data is a change in the mean and median of the total steps per day.  
