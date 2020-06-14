@@ -113,7 +113,28 @@ for (i in 1:n) {
     data$steps[j] <- steps_interval$steps[which(steps_interval$interval == data$interval[j])]
 }
 ```
-Double checking *NA*'s values: 0.  
+Double checking *NA*'s values imputing: 
+
+```r
+data
+```
+
+```
+## # A tibble: 17,568 x 3
+##     steps date       interval
+##     <dbl> <date>        <int>
+##  1 1.72   2012-10-01        0
+##  2 0.340  2012-10-01        5
+##  3 0.132  2012-10-01       10
+##  4 0.151  2012-10-01       15
+##  5 0.0755 2012-10-01       20
+##  6 2.09   2012-10-01       25
+##  7 0.528  2012-10-01       30
+##  8 0.868  2012-10-01       35
+##  9 0      2012-10-01       40
+## 10 1.47   2012-10-01       45
+## # … with 17,558 more rows
+```
 Plotting the histogram:
 
 ```r
@@ -127,7 +148,7 @@ plt1 <-  plt1 + ggtitle('NA ignored')
 grid.arrange(plt1, plt3, nrow = 1)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 With **mean** 10766.19 and **median** 
 10766.19 steps.  
@@ -142,8 +163,9 @@ data$day <- as.factor(ifelse(data$day=="saturday"|data$day=="sunday","weekend","
 patterns <- summarise(group_by(data,interval,day),steps = mean(steps))
 plt4 <- ggplot(patterns,aes(x=interval,y=steps)) +
     geom_line() +
-    facet_grid(day~.)
+    facet_grid(day~.) +
+    labs(x = 'Interval',y = 'Steps')
 print(plt4)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->

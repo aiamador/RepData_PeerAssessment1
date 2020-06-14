@@ -70,7 +70,10 @@ for (i in 1:n) {
     data$steps[j] <- steps_interval$steps[which(steps_interval$interval == data$interval[j])]
 }
 ```
-Double checking *NA*'s values: `r sum(!complete.cases(data))`.  
+Double checking *NA*'s values imputing: 
+```{r}
+data
+```
 Plotting the histogram:
 ```{r,message=FALSE}
 steps_day <- data %>% 
@@ -95,6 +98,7 @@ data$day <- as.factor(ifelse(data$day=="saturday"|data$day=="sunday","weekend","
 patterns <- summarise(group_by(data,interval,day),steps = mean(steps))
 plt4 <- ggplot(patterns,aes(x=interval,y=steps)) +
     geom_line() +
-    facet_grid(day~.)
+    facet_grid(day~.) +
+    labs(x = 'Interval',y = 'Steps')
 print(plt4)
 ```
